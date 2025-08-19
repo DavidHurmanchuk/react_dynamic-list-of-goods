@@ -6,19 +6,25 @@ const API_URL = `https://mate-academy.github.io/react_dynamic-list-of-goods/good
 export function getAll(): Promise<Good[]> {
   return fetch(API_URL).then(response => {
     if (!response.ok) {
-      throw new Error(`Failed to fetch goods`)
+      throw new Error(`Failed to fetch goods`);
     }
-    return response.json()});
+
+    return response.json();
+  });
 }
 
 export const get5First = () => {
   return getAll().then(goods => {
     const sortedGoods = goods.sort((a, b) => a.name.localeCompare(b.name));
-    return sortedGoods.slice(0, 5)}); // sort and get the first 5
+
+    return sortedGoods.slice(0, 5);
+  }); // sort and get the first 5
 };
 
 export const getRed = () => {
   return getAll().then(goods => {
-    const sortedGoods = goods.filter(good => good.color === 'red')
-    return sortedGoods}); // get only red
+    const sortedGoods = goods.filter(good => good.color === 'red');
+
+    return sortedGoods;
+  }); // get only red
 };

@@ -9,7 +9,7 @@ import { Good } from './types/Good';
 
 export const App: React.FC = () => {
   const [visibleGoods, setVisibleGoods] = useState<Good[]>([]);
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null);
 
   const handleSuccess = (goods: Good[]) => {
     setVisibleGoods(goods);
@@ -22,21 +22,15 @@ export const App: React.FC = () => {
   };
 
   const handleGetAll = () => {
-    getAll()
-      .then(handleSuccess)
-      .catch(handleError);
+    getAll().then(handleSuccess).catch(handleError);
   };
 
   const handleGet5First = () => {
-    get5First()
-      .then(handleSuccess)
-      .catch(handleError);
+    get5First().then(handleSuccess).catch(handleError);
   };
 
   const handleGetRed = () => {
-    getRed()
-      .then(handleSuccess)
-      .catch(handleError);
+    getRed().then(handleSuccess).catch(handleError);
   };
 
   return (
